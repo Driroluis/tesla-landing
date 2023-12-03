@@ -1,6 +1,11 @@
+---
+const { color } = Astro.props
+const textColor = `text-${color}`
+---
+
 <section
   class="landing-section bg-black h-screen w-screen text-center relative overflow-hidden"
-  data-header-color="white"
+  data-header-color={color}
 >
   <div class="z-30 relative h-full flex flex-col">
     <header>
