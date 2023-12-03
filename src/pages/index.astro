@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Tesla - El coche de tus sueños">
   <main>
     <header
       class="py-4 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
@@ -46,20 +46,32 @@ import Layout from "../layouts/Layout.astro";
     <section
       class="bg-black h-screen w-screen text-center relative overflow-hidden"
     >
-      <header class="z-30 relative">
-        <h2 class="text-white pt-40 text-[40px] font-medium">Disfrute de Tesla</h2>
-        <p class="text-white text-sm">
-          Programe una prueba de conducción hoy mismo
-        </p>
-      </header>
+      <div class="z-30 relative h-full flex flex-col">
+        <header>
+          <h2 class="text-white pt-40 text-[40px] font-medium">
+            Disfrute de Tesla
+          </h2>
+          <p class="text-white text-sm">
+            Programe una prueba de conducción hoy mismo
+          </p>
+        </header>
 
-      <footer class="z-30 relative">
-        <a href="#"> Prueba de conducción</a>
-      </footer>
+        <footer class="flex flex-col flex-grow justify-end pb-20">
+          <div>
+            <a
+              class="border-[3px] border-white bg-white/5 text-sm rounded font-medium text-white px-12 py-2 inline-block 
+              hover:bg-white hover:text-black trasition-colors"
+              href="#"
+            >
+              Prueba de conducción</a
+            >
+          </div>
+        </footer>
+      </div>
 
-      <div class="absolute top-0 bottom-0 h-full z-10">
+      <div class="absolute top-0 bottom-0 h-full w-full z-10">
         <video
-          class="object-center"
+          class="object-center object-cover h-full w-full"
           autoplay
           muted
           loop
