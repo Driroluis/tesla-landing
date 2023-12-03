@@ -6,13 +6,13 @@ import Logo from "./logo.astro";
   id="landing-header"
   class="py-4 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
-  <div class="flex flex-grow">
+  <div class="flex flex-grow basis-0">
     <Logo />
   </div>
 
   <nav>
     <ul
-      class="flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+      class="flex text-sm [&>li>a]:transitions-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
       <li><a href="#">Model S</a></li>
       <li><a href="#">Model 3</a></li>
@@ -25,7 +25,7 @@ import Logo from "./logo.astro";
 
   <nav class="flex flex-grow justify-end basis-0">
     <ul
-      class="flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+      class="flex text-sm [&>li>a]:transitions-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
       <li><a href="#">Soporte</a></li>
       <li><a href="#">Tienda</a></li>
@@ -33,27 +33,40 @@ import Logo from "./logo.astro";
       <li><a href="#">Menú</a></li>
     </ul>
   </nav>
+
+  <div
+    id="menu-backdrop"
+    class={`
+    "absolute bg-black/5 backdrop-blur-lg rounded left-[var(--left)]
+    top-[var(--height)] transition-all duration-300 ease-in-out"
+    `}
+  >
+  </div>
 </header>
+    
+<script>
+    // const lis
+</script>
 
 <script>
-  const headerEl = document.querySelector('#landing-header') as HTMLElement
+  const headerEl = document.querySelector("#landing-header") as HTMLElement;
 
   const observerOptions = {
     root: null,
-    rootMargin: '0px', // en cuantoo se vea el elemento
-    threshold: 0.90, // porcentaje de visibilidad
+    rootMargin: "0px", // en cuantoo se vea el elemento
+    threshold: 0.9, // porcentaje de visibilidad
   };
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const { isIntersecting } = entry
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
       if (isIntersecting) {
-        const color = entry.target.getAttribute('data-header-color')
-        headerEl.style.color = color
+        const color = entry.target.getAttribute("data-header-color");
+        headerEl.style.color = color;
       }
     });
-  }, observerOptions)
+  }, observerOptions);
 
-  const sectionsElements = document.querySelectorAll(".landing-section")
-  sectionsElements.forEach((section) => observer.observe(section))
+  const sectionsElements = document.querySelectorAll(".landing-section");
+  sectionsElements.forEach((section) => observer.observe(section));
 </script>
