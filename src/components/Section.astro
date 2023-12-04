@@ -1,6 +1,7 @@
 ---
-const { color,title,subtitle } = Astro.props
-const textColor = `text-${color}`
+const { color,title,subtitle } = Astro.props;
+const textColor = `text-${color}`;
+import FooterMenu from './FooterMenu.astro';
 ---
 
 <section
@@ -12,13 +13,15 @@ const textColor = `text-${color}`
       <h2 class={`${textColor} pt-40 text-[40px] font-medium`}>
         {title}
       </h2>
-      <p class={`{textColor} text-sm`}>
+      <p class={`${textColor} text-sm`}>
         {subtitle}
       </p>
     </header>
 
     <footer class="flex flex-col flex-grow justify-end pb-20">
         <slot name="footer"/>
+        <!-- Contidionally load footer: -->
+        <!-- {showFooterContent && </FooterMenu >>} -->
       
     </footer>
   </div>
