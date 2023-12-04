@@ -7,11 +7,11 @@ import Logo from "./logo.astro";
   class="py-4 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
 >
   <div class="flex flex-grow basis-0 px-5">
-    <Logo />
+    <a href="#"><Logo /></a>
   </div>
 
-  <nav>
-  <!-- <nav class="hidden md:flex flex-grow justify-center basis-0"> -->
+  <nav class="hidden xl:block sm:hidden">
+
     <ul
       class="flex text-sm  [&>li>a]:transitions-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-semibold [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
@@ -28,9 +28,9 @@ import Logo from "./logo.astro";
     <ul
       class="flex text-sm [&>li>a]:transitions-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-semibold [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
-      <li><a href="#">Soporte</a></li>
-      <li><a href="#">Tienda</a></li>
-      <li><a href="#">Cuenta</a></li>
+      <li><a class="hidden xl:block sm:hidden" href="#">Soporte</a></li>
+      <li><a class="hidden xl:block sm:hidden" href="#">Tienda</a></li>
+      <li><a class="hidden xl:block sm:hidden" href="#">Cuenta</a></li>
       <li><a href="#">Menú</a></li>
     </ul>
   </nav>
@@ -38,9 +38,9 @@ import Logo from "./logo.astro";
   <div
     id="menu-backdrop"
     class={`
-    "absolute bg-black/5 backdrop-blur-lg rounded translate-x-[var(--left)]
+    absolute bg-zinc-900/50 backdrop-blur-sm rounded translate-x-[var(--left)]
     translate-y-[var(--top)] left-0 top-0 w-[var(--width)] h-[var(--height)]  
-    transition-all duration-500 ease-in-out  opacity-0 -z-10"
+    transition-all duration-500 ease-in-out  opacity-0 -z-10
     `}
   >
   </div>
