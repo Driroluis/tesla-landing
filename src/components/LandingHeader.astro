@@ -10,7 +10,7 @@ import Logo from "./logo.astro";
     <Logo />
   </div>
 
-  <nav>
+  <nav class="hidden md:flex flex-grow justify-center basis-0">
     <ul
       class="flex text-sm [&>li>a]:transitions-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
     >
@@ -46,45 +46,17 @@ import Logo from "./logo.astro";
 </header>
 
 <script>
-    const listItem = document.querySelectorAll("#landing-header li")
-    const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement
-  
-    listItem.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        const { left, top, width, height } = item.getBoundingClientRect()
-  
-        menuBackDrop.style.setProperty("--left", `${left}px`)
-        menuBackDrop.style.setProperty("--top", `${top}px`)
-        menuBackDrop.style.setProperty("--width", `${width}px`)
-        menuBackDrop.style.setProperty("--height", `${height}px`)
-  
-        menuBackDrop.style.opacity = "1"
-        menuBackDrop.style.visibility = "visible"
-      })
-  
-      item.addEventListener("mouseleave", () => {
-        menuBackDrop.style.opacity = "0"
-        menuBackDrop.style.visibility = "hidden"
-      })
-    })
-  </script>
-
-<!-- <script>
   const listItem = document.querySelectorAll("#landing-header li");
   const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
 
   listItem.forEach((item) => {
     item.addEventListener("mouseenter", () => {
       const { left, top, width, height } = item.getBoundingClientRect();
-      const { clientHeight, clientWidth } = item;
-
-      console.log({ left, top, width, height });
-      console.log({ clientHeight, clientWidth });
 
       menuBackDrop.style.setProperty("--left", `${left}px`);
       menuBackDrop.style.setProperty("--top", `${top}px`);
-      menuBackDrop.style.setProperty("--height", `${width}px`);
-      menuBackDrop.style.setProperty("--width", `${height}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
 
       menuBackDrop.style.opacity = "1";
       menuBackDrop.style.visibility = "visible";
@@ -95,37 +67,14 @@ import Logo from "./logo.astro";
       menuBackDrop.style.visibility = "hidden";
     });
   });
-</script> -->
+</script>
 
 <script>
-    const headerEl = document.querySelector("#landing-header") as HTMLElement
-  
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px", // en cuanto se vea el elemento
-      threshold: 0.9, // porcentaje de visibilidad
-    }
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const { isIntersecting } = entry
-        if (isIntersecting) {
-          const color = entry.target.getAttribute("data-header-color")
-          headerEl.style.color = color
-        }
-      })
-    }, observerOptions)
-  
-    const sectionElements = document.querySelectorAll(".landing-section")
-    sectionElements.forEach((section) => observer.observe(section))
-  </script>
-
-<!-- <script>
   const headerEl = document.querySelector("#landing-header") as HTMLElement;
 
   const observerOptions = {
     root: null,
-    rootMargin: "0px", // en cuantoo se vea el elemento
+    rootMargin: "0px", // en cuanto se vea el elemento
     threshold: 0.9, // porcentaje de visibilidad
   };
 
@@ -139,6 +88,6 @@ import Logo from "./logo.astro";
     });
   }, observerOptions);
 
-  const sectionsElements = document.querySelectorAll(".landing-section");
-  sectionsElements.forEach((section) => observer.observe(section));
-</script> -->
+  const sectionElements = document.querySelectorAll(".landing-section");
+  sectionElements.forEach((section) => observer.observe(section));
+</script>
